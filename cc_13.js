@@ -42,27 +42,49 @@ function addRemoveFunctionality(button, card) {
 // Task 5: Inline Editing of Employee Details
 function enableInlineEditing(card) {
     card.addEventListener('dblclick', () => {
-        const name = card.querySelector('h2');
-        const position = card.querySelector('p');
+        const nameElement = card.querySelector('h2');
+        const positionElement = card.querySelector('p');
 
+        // Create input fields pre-filled with current values
         const nameInput = document.createElement('input');
-        nameInput.value = name.textContent;
+        nameInput.value = nameElement.textContent;
 
         const positionInput = document.createElement('input');
-        positionInput.value = position.textContent;
+        positionInput.value = positionElement.textContent;
 
         const saveButton = document.createElement('button');
         saveButton.textContent = 'Save';
+
+        // Save updated values and revert to static text
         saveButton.onclick = () => {
-            name.textContent = nameInput.value;
-            position.textContent = positionInput.value;
-            card.replaceChild(name, nameInput);
-            card.replaceChild(position, positionInput);
+            nameElement.textContent = nameInput.value;
+            positionElement.textContent = positionInput.value;
+            
+            card.replaceChild(nameElement, nameInput);
+            card.replaceChild(positionElement, positionInput);
             card.removeChild(saveButton);
         };
 
-        card.replaceChild(nameInput, name);
-        card.replaceChild(positionInput, position);
+        // Replace elements with input fields
+        card.replaceChild(nameInput, nameElement);
+        card.replaceChild(positionInput, positionElement);
         card.appendChild(saveButton);
     });
 }
+
+// Attach inline editing to each card
+window.onload = () => {
+    const employees = [
+        { name: 'John Doe', position: 'Software Engineer' },
+        { name: 'Jane Smith', position: 'Project Manager' },
+        { name: 'Alice Johnson', position: 'UI/UX Designer' },
+        { name: 'Bob Brown', position: 'Data Analyst' }
+    ];
+
+    employees.forEach(emp => {
+        addEmployeeCard(emp.name, emp.position);
+    });
+
+    const cards = document.querySelectorAll('.employee-card');
+    cards.forEach(card => enableInlineEditing(card));
+};
