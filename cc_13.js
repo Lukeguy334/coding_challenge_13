@@ -19,3 +19,9 @@ function addEmployeeCard(name, position) {
     card.appendChild(removeButton);
     container.appendChild(card);
 }
+
+// Task 3: Converting NodeLists to Arrays for Bulk Updates
+function highlightAllCards() {
+    const cards = Array.from(document.querySelectorAll('.employee-card'));
+    cards.forEach(card => card.classList.add('highlight'));
+}
