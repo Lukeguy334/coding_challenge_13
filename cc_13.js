@@ -31,3 +31,10 @@ const container = document.getElementById('employeeContainer');
 container.addEventListener('click', (event) => {
     console.log('Employee card clicked!');
 });
+
+function addRemoveFunctionality(button, card) {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        container.removeChild(card);
+    });
+}
