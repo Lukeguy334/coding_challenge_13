@@ -25,3 +25,9 @@ function highlightAllCards() {
     const cards = Array.from(document.querySelectorAll('.employee-card'));
     cards.forEach(card => card.classList.add('highlight'));
 }
+
+// Task 4: Implementing Removal of Employee Cards with Event Bubbling
+const container = document.getElementById('employeeContainer');
+container.addEventListener('click', (event) => {
+    console.log('Employee card clicked!');
+});
