@@ -12,12 +12,18 @@ function addEmployeeCard(name, position) {
     
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
-    removeButton.onclick = () => container.removeChild(card);
+    removeButton.onclick = (event) => {
+        event.stopPropagation();
+        container.removeChild(card);
+    };
 
     card.appendChild(heading);
     card.appendChild(para);
     card.appendChild(removeButton);
     container.appendChild(card);
+
+    // Enable inline editing right after adding the card
+    enableInlineEditing(card);
 }
 
 // Task 3: Converting NodeLists to Arrays for Bulk Updates
@@ -41,11 +47,12 @@ function addRemoveFunctionality(button, card) {
 
 // Task 5: Inline Editing of Employee Details
 function enableInlineEditing(card) {
-    card.addEventListener('dblclick', () => {
+    card.addEventListener('dblclick', (event) => {
+        event.stopPropagation(); // Prevent triggering container click event
+
         const nameElement = card.querySelector('h2');
         const positionElement = card.querySelector('p');
 
-        // Create input fields pre-filled with current values
         const nameInput = document.createElement('input');
         nameInput.value = nameElement.textContent;
 
@@ -55,8 +62,8 @@ function enableInlineEditing(card) {
         const saveButton = document.createElement('button');
         saveButton.textContent = 'Save';
 
-        // Save updated values and revert to static text
-        saveButton.onclick = () => {
+        saveButton.onclick = (event) => {
+            event.stopPropagation();
             nameElement.textContent = nameInput.value;
             positionElement.textContent = positionInput.value;
             
@@ -65,14 +72,216 @@ function enableInlineEditing(card) {
             card.removeChild(saveButton);
         };
 
-        // Replace elements with input fields
         card.replaceChild(nameInput, nameElement);
         card.replaceChild(positionInput, positionElement);
         card.appendChild(saveButton);
     });
 }
 
-// Attach inline editing to each card
+// Task 5: Inline Editing of Employee Details
+function enableInlineEditing(card) {
+    card.addEventListener('dblclick', (event) => {
+        event.stopPropagation(); // Prevent triggering container click event
+
+        const nameElement = card.querySelector('h2');
+        const positionElement = card.querySelector('p');
+
+        const nameInput = document.createElement('input');
+        nameInput.value = nameElement.textContent;
+
+        const positionInput = document.createElement('input');
+        positionInput.value = positionElement.textContent;
+
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+
+        saveButton.onclick = (event) => {
+            event.stopPropagation();
+            nameElement.textContent = nameInput.value;
+            positionElement.textContent = positionInput.value;
+            
+            card.replaceChild(nameElement, nameInput);
+            card.replaceChild(positionElement, positionInput);
+            card.removeChild(saveButton);
+        };
+
+        card.replaceChild(nameInput, nameElement);
+        card.replaceChild(positionInput, positionElement);
+        card.appendChild(saveButton);
+    });
+}
+
+// Task 5: Inline Editing of Employee Details
+function enableInlineEditing(card) {
+    card.addEventListener('dblclick', (event) => {
+        event.stopPropagation(); // Prevent triggering container click event
+
+        const nameElement = card.querySelector('h2');
+        const positionElement = card.querySelector('p');
+
+        const nameInput = document.createElement('input');
+        nameInput.value = nameElement.textContent;
+
+        const positionInput = document.createElement('input');
+        positionInput.value = positionElement.textContent;
+
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+
+        saveButton.onclick = (event) => {
+            event.stopPropagation();
+            nameElement.textContent = nameInput.value;
+            positionElement.textContent = positionInput.value;
+            
+            card.replaceChild(nameElement, nameInput);
+            card.replaceChild(positionElement, positionInput);
+            card.removeChild(saveButton);
+        };
+
+        card.replaceChild(nameInput, nameElement);
+        card.replaceChild(positionInput, positionElement);
+        card.appendChild(saveButton);
+    });
+}
+
+// Task 5: Inline Editing of Employee Details
+function enableInlineEditing(card) {
+    card.addEventListener('dblclick', (event) => {
+        event.stopPropagation(); // Prevent triggering container click event
+
+        const nameElement = card.querySelector('h2');
+        const positionElement = card.querySelector('p');
+
+        const nameInput = document.createElement('input');
+        nameInput.value = nameElement.textContent;
+
+        const positionInput = document.createElement('input');
+        positionInput.value = positionElement.textContent;
+
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+
+        saveButton.onclick = (event) => {
+            event.stopPropagation();
+            nameElement.textContent = nameInput.value;
+            positionElement.textContent = positionInput.value;
+            
+            card.replaceChild(nameElement, nameInput);
+            card.replaceChild(positionElement, positionInput);
+            card.removeChild(saveButton);
+        };
+
+        card.replaceChild(nameInput, nameElement);
+        card.replaceChild(positionInput, positionElement);
+        card.appendChild(saveButton);
+    });
+}
+
+// Task 5: Inline Editing of Employee Details
+function enableInlineEditing(card) {
+    card.addEventListener('dblclick', (event) => {
+        event.stopPropagation(); // Prevent triggering container click event
+
+        const nameElement = card.querySelector('h2');
+        const positionElement = card.querySelector('p');
+
+        const nameInput = document.createElement('input');
+        nameInput.value = nameElement.textContent;
+
+        const positionInput = document.createElement('input');
+        positionInput.value = positionElement.textContent;
+
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+
+        saveButton.onclick = (event) => {
+            event.stopPropagation();
+            nameElement.textContent = nameInput.value;
+            positionElement.textContent = positionInput.value;
+            
+            card.replaceChild(nameElement, nameInput);
+            card.replaceChild(positionElement, positionInput);
+            card.removeChild(saveButton);
+        };
+
+        card.replaceChild(nameInput, nameElement);
+        card.replaceChild(positionInput, positionElement);
+        card.appendChild(saveButton);
+    });
+}
+
+// Task 5: Inline Editing of Employee Details
+function enableInlineEditing(card) {
+    card.addEventListener('dblclick', (event) => {
+        event.stopPropagation(); // Prevent triggering container click event
+
+        const nameElement = card.querySelector('h2');
+        const positionElement = card.querySelector('p');
+
+        const nameInput = document.createElement('input');
+        nameInput.value = nameElement.textContent;
+
+        const positionInput = document.createElement('input');
+        positionInput.value = positionElement.textContent;
+
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+
+        saveButton.onclick = (event) => {
+            event.stopPropagation();
+            nameElement.textContent = nameInput.value;
+            positionElement.textContent = positionInput.value;
+            
+            card.replaceChild(nameElement, nameInput);
+            card.replaceChild(positionElement, positionInput);
+            card.removeChild(saveButton);
+        };
+
+        card.replaceChild(nameInput, nameElement);
+        card.replaceChild(positionInput, positionElement);
+        card.appendChild(saveButton);
+    });
+}
+// Task 5: Inline Editing of Employee Details
+function enableInlineEditing(card) {
+    card.addEventListener('dblclick', (event) => {
+        event.stopPropagation(); // Prevent triggering container click event
+
+        const nameElement = card.querySelector('h2');
+        const positionElement = card.querySelector('p');
+
+        const nameInput = document.createElement('input');
+        nameInput.value = nameElement.textContent;
+
+        const positionInput = document.createElement('input');
+        positionInput.value = positionElement.textContent;
+
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+
+        saveButton.onclick = (event) => {
+            event.stopPropagation();
+            nameElement.textContent = nameInput.value;
+            positionElement.textContent = positionInput.value;
+            
+            card.replaceChild(nameElement, nameInput);
+            card.replaceChild(positionElement, positionInput);
+            card.removeChild(saveButton);
+        };
+
+        card.replaceChild(nameInput, nameElement);
+        card.replaceChild(positionInput, positionElement);
+        card.appendChild(saveButton);
+    });
+}
+
+// Attach event listener to log clicks on employee cards
+const container = document.getElementById('employeeContainer');
+container.addEventListener('click', () => {
+    console.log('Employee card clicked!');
+});
+
+// Add sample employee cards on page load
 window.onload = () => {
     const employees = [
         { name: 'John Doe', position: 'Software Engineer' },
@@ -81,10 +290,5 @@ window.onload = () => {
         { name: 'Bob Brown', position: 'Data Analyst' }
     ];
 
-    employees.forEach(emp => {
-        addEmployeeCard(emp.name, emp.position);
-    });
-
-    const cards = document.querySelectorAll('.employee-card');
-    cards.forEach(card => enableInlineEditing(card));
+    employees.forEach(emp => addEmployeeCard(emp.name, emp.position));
 };
