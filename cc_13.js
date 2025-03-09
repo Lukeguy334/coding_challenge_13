@@ -38,3 +38,31 @@ function addRemoveFunctionality(button, card) {
         container.removeChild(card);
     });
 }
+
+// Task 5: Inline Editing of Employee Details
+function enableInlineEditing(card) {
+    card.addEventListener('dblclick', () => {
+        const name = card.querySelector('h2');
+        const position = card.querySelector('p');
+
+        const nameInput = document.createElement('input');
+        nameInput.value = name.textContent;
+
+        const positionInput = document.createElement('input');
+        positionInput.value = position.textContent;
+
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+        saveButton.onclick = () => {
+            name.textContent = nameInput.value;
+            position.textContent = positionInput.value;
+            card.replaceChild(name, nameInput);
+            card.replaceChild(position, positionInput);
+            card.removeChild(saveButton);
+        };
+
+        card.replaceChild(nameInput, name);
+        card.replaceChild(positionInput, position);
+        card.appendChild(saveButton);
+    });
+}
